@@ -57,7 +57,7 @@ remove_outliers = function(x, na.rm = TRUE, ...) {
 # change column type to numeric
 dta_numeric = apply(data, 2, as.numeric)
 # correlation matrix
-cor_matrix = cor(dta_numeric)
+cor_matrix = cor(dta_numeric[,colSums(is.na(dta_numeric))<nrow(dta_numeric)])
 
 
 # after delete outlier data
